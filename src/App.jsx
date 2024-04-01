@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './Components/Login'
 import './App.css'
 
@@ -12,14 +12,14 @@ function App() {
     <>
       <h2>Disney+ Clone</h2>
       <Router>
-        <Switch>
-          <Route exact path='/'>
+        <Routes exact path="/">
+          <Route>
             <Login />
           </Route>
-        </Switch>
+        </Routes>
       </Router>
     </>
-  )
+  );
 }
 
 export default App
