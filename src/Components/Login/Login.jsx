@@ -11,7 +11,7 @@ const Login = () => {
               src="/images/cta-logo-one.svg"
               alt="Logo One"
             />
-            <a href="/signup" className="singUp">{'Get all there'.toUpperCase()}</a>
+            <a href="/" className="singUp">{'Get all there'.toUpperCase()}</a>
             <p className="description">
               Get Premier Access to Raya and the Last Dragon for an additional
               fee with a Disney+ subscription. As of 03/19/24, the price of
