@@ -1,17 +1,49 @@
 .container {
-
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .content {
-
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+    align-items: center;
+    background-color: orange;
+    padding: 80px 40px;
+    height: 100%;
 }
 
 .cta {
-
+    max-width: 650px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* by default f-d is row */
 }
 
 .ctaLogoOne {
 
+}
+
+.singUp {
+    background-color: #0063e5;
+    padding: 16.5px 0px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+}
+
+.singUp:hover {
+    background-color: #0483ee;
 }
 
 .ctalogotwo {
