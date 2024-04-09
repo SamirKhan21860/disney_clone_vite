@@ -2,10 +2,20 @@
 
 const Login = () => {
   return (
-    // <Container>
-    //     <Content>Content</Content>
-    // </Container>
-    <div>Login</div>
+    <>
+      <section className="container">
+        <div className="content">
+          <div className="cta">
+            <img className="ctaLogoOne" src="" alt="" />
+            <a href="" className="singUp"></a>
+
+            <div className="gbImage">
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
 
