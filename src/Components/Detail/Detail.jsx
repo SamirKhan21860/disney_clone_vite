@@ -1,4 +1,4 @@
-const Detail = (props) => {
+const Detail = () => {
     return (
         <>
             <div>Detail</div>
