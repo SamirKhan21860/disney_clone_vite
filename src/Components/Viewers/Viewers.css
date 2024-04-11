@@ -1,0 +1,23 @@
+.container {}
+
+.content {
+
+    @media {
+        max-width: 768px) {}
+    }
+
+    .wrap {
+
+        img {}
+
+        video {
+
+        }
+
+        &:hover {
+
+            video {
+                
+            }
+        }
+    }

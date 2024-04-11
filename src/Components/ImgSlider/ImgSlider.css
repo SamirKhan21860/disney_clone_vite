@@ -1,0 +1,48 @@
+.carousel {
+
+    & > button {
+
+
+        &:hover {
+
+        }
+    }
+
+    ul li button {
+        &:before {
+
+        }
+    }
+
+    li.slick-active button:before {
+
+    }
+
+    .slick-list {
+
+    }
+
+    .slick-prev {
+
+    }
+
+    .slick-next {
+
+    }
+}
+
+.warap {
+
+
+    a {
+
+
+        img {
+
+        }
+
+        &:hover {
+            
+        }
+    }
+}
