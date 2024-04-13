@@ -1,4 +1,4 @@
-import Originals from "../../../../../cp-disney-plus-clone/src/components/Originals";
+import Originals from "../Originals/Originals"
 import ImgSlider from "../ImgSlider/ImgSlider";
 import NewDisney from "../NewDisney/NewDisney";
 import Recommends from "../Recommends/Recommends";
