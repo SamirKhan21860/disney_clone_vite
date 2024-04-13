@@ -1,9 +1,15 @@
 .container {
-
+    position: relative;
+    display: block;
+    padding: 0 calc(3.5vw + 5px);
+    top: 72px;
+    min-height: calc(100vh - 250px);
+    overflow: hidden;
 }
 
 .background {
-
+    left: 0px;
+    opacity: 0.8;
     img {
 
     }

@@ -1,4 +1,4 @@
-// import React from 'react'
+import './Header.css';
 
 const Header = () => {
   return (
@@ -33,8 +33,15 @@ const Header = () => {
             <span>SERIES</span>
           </a>
         </div>
+        <div className="login">
+          <a href="/login">Login</a>
+        </div>
         <div className="sign-out">
-          <img src="" alt="" />
+          <img
+            className="user-img"
+            src="public\images\beauty-7246665.jpg"
+            alt="Beauty image"
+          />
           <div className="drop-down">
             <span>Sign out</span>
           </div>
