@@ -1,14 +1,73 @@
 import { auth, provider } from "../../firebase";
 import "./Header.css";
+import { useDispatch, useSelector } from "react-redux";
+// import { useHistory } from "react-router-dom"; // useHisotry is no more in React V6+
+import { useNavigate } from "react-router-dom";
+import {
+  selectUserName,
+  setSignOutState,
+  selectUserPhoto,
+  setUserLoginDetails,
+} from "../../features/user/userSlice";
+import { useCallback, useEffect } from "react";
 
-const Header = (props) => {
-  console.log(props);
-  const username = true;
-  // const username = false;
-  const handleAuth = () => {
-    auth.signInWithPopup(provider).then((result) => {
-      console.log(result);
+const Header = () => {
+  const dispatch = useDispatch();
+  const history = useNavigate();
+  const userName = useSelector(selectUserName);
+  const userPhoto = useSelector(selectUserPhoto);
+
+  const setUser = useCallback(
+    (user) => {
+      // Your logic for setting user details in Redux store
+      dispatch(
+        setUserLoginDetails({
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+        })
+      );
+    },
+    [dispatch]
+  ); // Dependencies for useCallback
+
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        // history.push("/home");
+        history("/home");
+      }
     });
+  }, [history, setUser]);
+
+  useEffect(() => {
+    // This effect runs whenever userName changes
+    if (userName) {
+      // Update UI based on logged-in user's name
+      console.log(`Logged in user: ${userName}`); // Example update
+    }
+  }, [userName]); // Dependency array with userName
+
+  const handleAuth = () => {
+    if (!userName) {
+      auth
+        .signInWithPopup(provider)
+        .then((result) => {
+          setUser(result.user);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    } else if (userName) {
+      auth
+        .signOut()
+        .then(() => {
+          dispatch(setSignOutState());
+          history.push("/");
+        })
+        .catch((err) => alert(err.message));
+    }
   };
 
   return (
@@ -18,9 +77,9 @@ const Header = (props) => {
           <img src="/images/logo.svg" alt="Disney+" />
         </a>
 
-        {!username ? (
+        {!userName ? (
           <div className="login">
-            <a href="/login" onClick={handleAuth}>Login</a>
+            <a onClick={handleAuth}>Login</a>
           </div>
         ) : (
           <>
@@ -51,13 +110,9 @@ const Header = (props) => {
               </a>
             </div>
             <div className="sign-out">
-              <img
-                className="user-img"
-                src="public\images\beauty-7246665.jpg"
-                alt="Beauty image"
-              />
+              <img className="user-img" src={userPhoto} alt={userName} />
               <div className="drop-down">
-                <span>Sign out</span>
+                <span onClick={handleAuth}>Sign out</span>
               </div>
             </div>
           </>

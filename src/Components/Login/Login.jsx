@@ -25,7 +25,7 @@ const Login = () => {
               className="ctalogotwo"
             />
           </div>
-          <div className="gbImage"></div>
+          <div className="bgImage"></div>
         </div>
       </section>
     </>

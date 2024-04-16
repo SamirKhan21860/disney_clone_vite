@@ -15,6 +15,7 @@ const ImgSlider = () => {
       </div>
     </>
   );
+  
 };
 
 export default ImgSlider;
