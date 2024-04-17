@@ -11,8 +11,8 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route exact path="/" Component={Login} />
-          <Route exact path="/home" Component={Home} />
+          <Route path="/" Component={Login} />
+          <Route path="/home" Component={Home} />
           <Route path="/detail/:id" Component={Detail} />
         </Routes>
       </Router>

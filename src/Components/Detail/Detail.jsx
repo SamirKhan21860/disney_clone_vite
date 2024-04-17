@@ -1,14 +1,32 @@
 import "./Detail.css";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import db from "../../firebase";
 
 const Detail = () => {
+  const {id} = useParams();
+  const [detailData, setDetailData] = useState({});
+
+  useEffect(() => {
+    db.collection("movies").doc(id).get().then((doc) => {
+      if (doc.exists) {
+        setDetailData(doc.data());
+      } else {
+        console.log("No such document in firebase 🔥");
+      }
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    });
+  }, [id]);
+
   return (
     <>
       <div className="container">
         <div className="background">
-          <img src="" alt="" />
+          <img src={detailData.title} alt={detailData.backgroundImg} />
         </div>
         <div className="image-title">
-          <img src="" alt="" />
+          <img src={detailData.title} alt={detailData.titleImg} />
         </div>
         <div className="content-meta">
           <div className="controls">
@@ -30,6 +48,8 @@ const Detail = () => {
               </div>
             </div>
           </div>
+          <div className="sub-title">{detailData.subTitle}</div>
+          <div className="description">{detailData.description}</div>
         </div>
       </div>
     </>
