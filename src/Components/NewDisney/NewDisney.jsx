@@ -1,7 +1,12 @@
 // import React from 'react'
 
+import { useSelector } from "react-redux";
+import { selectNewDisney } from "../../features/movie/movieSlice";
+import { Link } from 'react-router-dom';
+
+
 const NewDisney = () => {
-  const movies = null;
+  const movies = useSelector(selectNewDisney);
   return (
     <>
       <div className="container">
@@ -11,9 +16,9 @@ const NewDisney = () => {
             movies.map((movie, key) => (
               <div className="wrap" key={key}>
                 {movie.id}
-                <link to={`/detail/` + movie.id}>
+                <Link to={`/detail/` + movie.id}>
                   <img src={movie.cardImg} alt={movie.title} />
-                </link>
+                </Link>
               </div>
             ))}
         </div>
